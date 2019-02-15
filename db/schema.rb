@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_02_05_152425) do
+ActiveRecord::Schema.define(version: 2019_02_14_162654) do
 
   create_table "stocks", force: :cascade do |t|
     t.string "ticker"
@@ -20,9 +19,15 @@ ActiveRecord::Schema.define(version: 2019_02_05_152425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-=======
-ActiveRecord::Schema.define(version: 2019_02_04_154607) do
->>>>>>> 55dc45b3befa91b8531a1f70bd938ab933f8f2e2
+
+  create_table "user_stocks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "stock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_user_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_user_stocks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
